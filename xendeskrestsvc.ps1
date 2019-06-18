@@ -128,7 +128,7 @@ while ($true) {
             $result = Get-CitrixQueryResults -entity $requestvars[3]
         }
         # Convert the returned data to JSON and set the HTTP content type to JSON
-        $message = ConvertTo-Json $result;
+        $message = ConvertTo-Json -Depth 1 -InputObject $result;
         $response.ContentType = 'application/json';
 
         # Return empty message if message is null
